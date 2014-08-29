@@ -34,6 +34,7 @@ build-stamp:
 		--prefix=/usr \
 		--sysconfdir=/etc \
 		--mandir=`pwd`/debian/`dh_listpackages`/usr/share/man \
+		--with-regex=gnu \
 		--with-editor=/usr/bin/editor $(CONFARGS)
 	$(MAKE) CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
 
@@ -83,7 +84,7 @@ binary-arch: build install
 	dh_shlibdeps
 	dh_gencontrol
 	dh_md5sums
-	dh_builddeb -- -Zbzip2 -z9
+	dh_builddeb
 
 source diff:                                                                  
 	@echo >&2 'source and diff are obsolete - use dpkg-source -b'; false

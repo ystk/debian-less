@@ -1,3 +1,19 @@
+less (458-3) unstable; urgency=medium
+
+  * debian/control:
+    Priority: important
+    Standards-Version: 3.9.5
+  * debian/postinst: add (after adding the /bin/less alternative):
+    update-alternatives --quiet --remove pager /usr/bin/less
+    This change needs to get into one stable release.
+    Patch by Andreas Beckmann.
+    Closes: #694051.
+  * debian/rules:
+    export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+  * Refresh patches.
+
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Mon, 08 Sep 2014 05:35:17 +0100
+
 less (458-2) unstable; urgency=low
 
   * Merge 458-1ubuntu1 
